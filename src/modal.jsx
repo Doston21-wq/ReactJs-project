@@ -63,9 +63,11 @@ const handleDelete = (id) => {
   const updatedTasks = tasks.filter(task => task.id !== id);
   setTasks(updatedTasks);
   localStorage.setItem('tasks', JSON.stringify(updatedTasks));
-  toast.success('O/chirildi ');
+  toast.success('o`chirildi ');
 };
 
+
+ const notify = () => toast("Salom, bu Toastify!");
 
 
 
@@ -146,6 +148,7 @@ const filteredTasks = tasks.filter(task =>
       <td>{task.description}</td>
       <td className='tdd'>
         <button className='edit-btn btn'
+ onClick={notify}
         >
           <MdModeEdit />
         </button>
