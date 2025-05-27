@@ -10,7 +10,7 @@ function Home() {
       <button onClick={OpenSidebar} className='show-toggle'>
         <FaBars />
       </button>
-      <button onClick={OpenModal} className='btn add'>Task qushish <FaPlus /></button>
+      <button onClick={OpenModal} className='btn add'>Add Task<FaPlus /></button>
     </main>
   );
 }

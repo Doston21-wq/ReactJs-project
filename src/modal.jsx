@@ -32,12 +32,12 @@ const Modal = () => {
     const description = descRef.current?.value.trim()
 
     if (!title) {
-      toast.error('Title kiritilmagan!')
+      toast.error('Title not included!')
       return
     }
 
     if (!description) {
-      toast.warning('Description kiritilmagan!')
+      toast.warning('Description not included!')
       return
     }
 
@@ -52,7 +52,7 @@ const Modal = () => {
     localStorage.setItem('tasks', JSON.stringify(updatedTasks))
     setTasks(updatedTasks) 
 
-    toast.success('Vazifa saqlandi!')
+    toast.success('Task Saved!')
 
     titleRef.current.value = ''
     descRef.current.value = ''
@@ -63,11 +63,11 @@ const handleDelete = (id) => {
   const updatedTasks = tasks.filter(task => task.id !== id);
   setTasks(updatedTasks);
   localStorage.setItem('tasks', JSON.stringify(updatedTasks));
-  toast.success('o`chirildi ');
+  toast.success('Deleted!');
 };
 
 
- const notify = () => toast("Salom, bu Toastify!");
+
 
 
 
@@ -97,7 +97,7 @@ const filteredTasks = tasks.filter(task =>
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <h3>Vazifa qo'shish</h3>
+              <h3>Add Task</h3>
               <input 
                 ref={titleRef}
                 className='input-task'
@@ -111,7 +111,7 @@ const filteredTasks = tasks.filter(task =>
                 placeholder="Description"
               />
               <button className='btn' onClick={handleSubmit}>
-                Qo'shish
+                Add
               </button>
               <button className='close-modal-btn' onClick={closeModal}>
                 <FaTimes />
@@ -123,7 +123,7 @@ const filteredTasks = tasks.filter(task =>
 
     
       <div className="table-container">
-        <h2 className='h2'>Saqlangan Vazifalar</h2>
+        <h2 className='h2'>Saved Tasks</h2>
     <input 
     className='input-task inputt'
      type="search"
@@ -148,8 +148,10 @@ const filteredTasks = tasks.filter(task =>
       <td>{task.description}</td>
       <td className='tdd'>
         <button className='edit-btn btn'
- onClick={notify}
-        >
+onClick={() => {
+    toast.info("Coming Soon!");
+  }}
+>
           <MdModeEdit />
         </button>
         <button
