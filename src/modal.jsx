@@ -162,9 +162,6 @@ const filteredTasks = tasks.filter(task =>
     </tr>
   ))}
 </tbody>
-
-
-
         </table>
       </div>
     </>
